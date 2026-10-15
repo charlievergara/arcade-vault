@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Courier_Prime, JetBrains_Mono, Press_Start_2P } from "next/font/google";
 import "./globals.css";
+import { Footer } from "@/components/footer";
+import { Nav } from "@/components/nav";
 
 const pressStart = Press_Start_2P({
   variable: "--font-press-start",
@@ -33,7 +36,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body>
         <div className="av-bg" aria-hidden="true" />
         <div className="av-noise" aria-hidden="true" />
+        <Suspense fallback={<nav className="av-nav" aria-hidden="true" />}>
+          <Nav />
+        </Suspense>
         <div className="av-main">{children}</div>
+        <Footer />
       </body>
     </html>
   );
