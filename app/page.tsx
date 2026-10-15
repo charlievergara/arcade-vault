@@ -1,7 +1,15 @@
+import { Library } from "@/components/library";
+
 export default function Home() {
   return (
-    <main style={{ padding: 32 }}>
-      <h1 className="pixel neon-cyan">Arcade Vault</h1>
-    </main>
+    <div className="fade-in">
+      <section className="av-hero">
+        <h1 className="flicker">ARCADE VAULT</h1>
+        <div className="sub">
+          INSERT A COIN TO PLAY <span className="blink">_</span>
+        </div>
+      </section>
+      <Library />
+    </div>
   );
 }
