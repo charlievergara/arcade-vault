@@ -14,7 +14,8 @@ export function Nav() {
     { href: "/", label: "Home", active: pathname === "/" },
     { href: "/games", label: "Library", active: pathname.startsWith("/games") },
     { href: "/hall-of-fame", label: "Hall of Fame", active: pathname === "/hall-of-fame" },
-    { href: "/about", label: "About", active: pathname === "/about" },
+    // /about has no page yet: prefetch is off so the 404 does not hit the console
+    { href: "/about", label: "About", active: pathname === "/about", prefetch: false },
   ];
   const authActive = pathname === "/auth";
   const close = () => setOpen(false);
@@ -30,7 +31,12 @@ export function Nav() {
         </Link>
         <div className="links">
           {navLinks.map((l) => (
-            <Link key={l.href} href={l.href} className={l.active ? "active" : ""}>
+            <Link
+              key={l.href}
+              href={l.href}
+              prefetch={l.prefetch}
+              className={l.active ? "active" : ""}
+            >
               {l.label}
             </Link>
           ))}
@@ -71,6 +77,7 @@ export function Nav() {
           <Link
             key={l.href}
             href={l.href}
+            prefetch={l.prefetch}
             className={l.active ? "active" : ""}
             onClick={close}
           >
