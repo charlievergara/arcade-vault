@@ -1,6 +1,6 @@
 # SPEC 02 — Home landing page
 
-> **Status:** Approved
+> **Status:** Implemented
 > **Depends on:** SPEC 01
 > **Date:** 2026-10-16
 > **Objective:** Replace the Library at `/` with a Home landing page ported pixel-for-pixel from `references/templates/home-about/home.jsx` (English copy), and move the Library to `/games`.
