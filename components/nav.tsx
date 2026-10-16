@@ -10,8 +10,13 @@ export function Nav() {
   const { user, logout } = useSession();
   const [open, setOpen] = useState(false);
 
-  const libraryActive = pathname === "/" || pathname.startsWith("/games");
-  const hallActive = pathname === "/hall-of-fame";
+  const navLinks = [
+    { href: "/", label: "Home", active: pathname === "/" },
+    { href: "/games", label: "Library", active: pathname.startsWith("/games") },
+    { href: "/hall-of-fame", label: "Hall of Fame", active: pathname === "/hall-of-fame" },
+    // /about has no page yet: prefetch is off so the 404 does not hit the console
+    { href: "/about", label: "About", active: pathname === "/about", prefetch: false },
+  ];
   const authActive = pathname === "/auth";
   const close = () => setOpen(false);
 
@@ -25,12 +30,16 @@ export function Nav() {
           </div>
         </Link>
         <div className="links">
-          <Link href="/" className={libraryActive ? "active" : ""}>
-            Library
-          </Link>
-          <Link href="/hall-of-fame" className={hallActive ? "active" : ""}>
-            Hall of Fame
-          </Link>
+          {navLinks.map((l) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              prefetch={l.prefetch}
+              className={l.active ? "active" : ""}
+            >
+              {l.label}
+            </Link>
+          ))}
         </div>
         <div className="spacer"></div>
         <div className="coin-counter">
@@ -64,16 +73,17 @@ export function Nav() {
         <div className="pixel neon-cyan" style={{ fontSize: 11, marginBottom: 16 }}>
           MENU
         </div>
-        <Link href="/" className={libraryActive ? "active" : ""} onClick={close}>
-          Library
-        </Link>
-        <Link
-          href="/hall-of-fame"
-          className={hallActive ? "active" : ""}
-          onClick={close}
-        >
-          Hall of Fame
-        </Link>
+        {navLinks.map((l) => (
+          <Link
+            key={l.href}
+            href={l.href}
+            prefetch={l.prefetch}
+            className={l.active ? "active" : ""}
+            onClick={close}
+          >
+            {l.label}
+          </Link>
+        ))}
         <Link href="/auth" className={authActive ? "active" : ""} onClick={close}>
           {user ? "Account" : "Sign in"}
         </Link>

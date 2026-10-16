@@ -9,7 +9,7 @@ export default function GameNotFound() {
       <p style={{ color: "var(--ink-dim)", marginBottom: 28 }}>
         This cartridge isn&apos;t in the vault. Check the link or pick a game from the library.
       </p>
-      <Link href="/" className="btn">
+      <Link href="/games" className="btn">
         BACK TO THE VAULT
       </Link>
     </div>
