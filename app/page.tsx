@@ -62,10 +62,10 @@ export default function Home() {
               ✦&nbsp; CREATE ACCOUNT
             </Link>
           </div>
-          <div className={styles["hero-scroll"]} aria-hidden="true">
-            <span>SCROLL</span>
-            <span className={styles.arrow}>▼</span>
-          </div>
+        </div>
+        <div className={styles["hero-scroll"]} aria-hidden="true">
+          <span>SCROLL</span>
+          <span className={styles.arrow}>▼</span>
         </div>
       </section>
 

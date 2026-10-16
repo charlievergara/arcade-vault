@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 80px 32px 60px;
+  padding: 80px 32px 100px;
   overflow: hidden;
 }
 .home-hero-inner { position: relative; z-index: 3; text-align: center; max-width: 1100px; }
@@ -36,7 +36,7 @@
 }
 .home-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 .hero-scroll {
-  position: absolute; left: 50%; bottom: -20px; transform: translateX(-50%);
+  position: absolute; left: 50%; bottom: 24px; z-index: 3; transform: translateX(-50%);
   font-family: var(--pixel); font-size: 9px; letter-spacing: 0.2em; color: var(--ink-faint);
   display: flex; flex-direction: column; align-items: center; gap: 8px;
 }
