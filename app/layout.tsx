@@ -36,11 +36,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body>
         <div className="av-bg" aria-hidden="true" />
         <div className="av-noise" aria-hidden="true" />
-        <Suspense fallback={<nav className="av-nav" aria-hidden="true" />}>
-          <Nav />
-        </Suspense>
-        <div className="av-main">{children}</div>
-        <Footer />
+        <div className="av-root">
+          <Suspense fallback={<nav className="av-nav" aria-hidden="true" />}>
+            <Nav />
+          </Suspense>
+          <div className="av-main">{children}</div>
+          <Footer />
+        </div>
       </body>
     </html>
   );
