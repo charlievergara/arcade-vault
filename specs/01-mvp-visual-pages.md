@@ -1,6 +1,6 @@
 # SPEC 01 — MVP visual pages
 
-> **Status:** Approved
+> **Status:** Implemented
 > **Depends on:** None (builds on the global theme already present in `app/globals.css` and `app/layout.tsx`)
 > **Date:** 2026-10-15
 > **Objective:** Port the five screens from `references/templates/` (Library, Game Detail, Player, Auth, Hall of Fame) to Next.js App Router routes in English, as a visual-only MVP with mock data and no real game.
